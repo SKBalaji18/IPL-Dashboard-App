@@ -1,0 +1,77 @@
+.team-match-bg-container {
+  min-height: 100vh;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.RCB {
+  background-image: linear-gradient(to bottom, #a4261d, #1e293b);
+}
+
+.KKR {
+  background-image: linear-gradient(to bottom, #5755a7, #1e293b);
+}
+
+.CSK {
+  background-image: linear-gradient(to bottom, #f7db00, #1e293b);
+}
+
+.MI {
+  background-image: linear-gradient(to bottom, #13418b, #1e293b);
+}
+
+.KXP {
+  background-image: linear-gradient(to bottom, #d91c1f, #1e293b);
+}
+
+.SH {
+  background-image: linear-gradient(to bottom, #f26d22, #1e293b);
+}
+
+.RR {
+  background-image: linear-gradient(to bottom, #da237b, #1e293b);
+}
+
+.DC {
+  background-image: linear-gradient(to bottom, #4f5db0, #1e293b);
+}
+
+.tm-img-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+.banner-img {
+  width: 100%;
+}
+
+.tm-heading {
+  align-self: flex-start;
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.match-card-container {
+  padding-left: 0px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 560px) {
+  .tm-img-container {
+    min-width: 300px;
+  }
+}

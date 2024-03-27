@@ -1,0 +1,79 @@
+.match-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f172a;
+  width: 48%;
+  border-radius: 16px;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-bottom: 12px;
+  padding-right: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+  min-height: 250px;
+  cursor: pointer;
+}
+
+.recent-match-opp {
+  color: #ffffff;
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+.recent-match-result {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.recent-match-sts {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.win {
+  color: #18ed66;
+}
+.lose {
+  color: #e31a1a;
+}
+
+.match-card-logo {
+  max-width: 60px;
+  height: 40px;
+}
+
+@media screen and (max-width: 560px) {
+  .match-card {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .match-card {
+    min-height: 500px;
+    width: 30%;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .match-card-logo {
+    max-width: 150px;
+    height: 150px;
+  }
+
+  .recent-match-opp {
+    font-size: 24px;
+  }
+
+  .recent-match-result {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  .recent-match-sts {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}

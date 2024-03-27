@@ -1,0 +1,13 @@
+.not-found-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 760px) {
+  .not-found-text {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
