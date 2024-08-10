@@ -29,14 +29,18 @@ class Home extends Component {
     this.setState({isLoading: false, fetchedData: updatedData})
   }
 
+  renderLoader = () => (
+    <div data-testid="loader">
+      <Loader type="Oval" color="#ffffff" height={50} />
+    </div>
+  )
+
   render() {
     const {isLoading, fetchedData} = this.state
     return (
       <div className="home-bg-container">
         {isLoading ? (
-          <div data-testid="loader">
-            <Loader type="Oval" color="#ffffff" height={50} />
-          </div>
+          this.renderLoader()
         ) : (
           <div className="home-details-container">
             <div className="home-header-container">

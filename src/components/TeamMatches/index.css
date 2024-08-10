@@ -75,3 +75,19 @@
     min-width: 300px;
   }
 }
+
+.back-btn {
+  background-color: #ffffff33;
+  border: 1px solid #ffffff;
+  color: white;
+  padding: 10px 15px;
+  margin: 10px 5px;
+  cursor: pointer;
+  text-decoration: none;
+  align-self: flex-start;
+  border-radius: 8px;
+}
+
+.btn-link {
+  align-self: flex-start;
+}

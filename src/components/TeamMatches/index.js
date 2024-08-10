@@ -1,10 +1,12 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
-
+import {Link} from 'react-router-dom'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
+import PieChart from '../PieChart'
+
 import './index.css'
 
 class TeamMatches extends Component {
@@ -23,6 +25,7 @@ class TeamMatches extends Component {
     const {id} = params
 
     const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
+
     const data = await response.json()
 
     const updatedData = {
@@ -55,8 +58,33 @@ class TeamMatches extends Component {
       })),
     }
 
+    console.log(data)
+
     this.setState({isLoading: false, fetchedDetailData: updatedData})
   }
+
+  getTeamResults = res => {
+    const {fetchedDetailData} = this.state
+    const {latestMatchDetails, recentMatches} = fetchedDetailData
+
+    const latestResult = latestMatchDetails.matchStatus === res ? 1 : 0
+    const result =
+      recentMatches.filter(each => each.matchStatus === res).length +
+      latestResult
+    return result
+  }
+
+  pieData = () => [
+    {name: 'Won', value: this.getTeamResults('Won')},
+    {name: 'Lost', value: this.getTeamResults('Lost')},
+    {name: 'Drawn', value: this.getTeamResults('Drawn')},
+  ]
+
+  renderLoader = () => (
+    <div data-testid="loader">
+      <Loader type="Oval" color="#ffffff" height={50} />
+    </div>
+  )
 
   render() {
     const {isLoading, fetchedDetailData} = this.state
@@ -67,12 +95,12 @@ class TeamMatches extends Component {
     return (
       <div className={`team-match-bg-container ${id}`}>
         {isLoading ? (
-          <div data-testid="loader">
-            <Loader type="Oval" color="#ffffff" height={50} width={50} />
-          </div>
+          this.renderLoader()
         ) : (
           <div className="tm-img-container">
             <img className="banner-img" src={teamBannerUrl} alt="team banner" />
+            <p className="tm-heading">Team Statics</p>
+            <PieChart data={this.pieData()} />
             <p className="tm-heading"> Latest Matches</p>
             <LatestMatch latestMatchDetails={latestMatchDetails} />
             <ul className="match-card-container">
@@ -80,6 +108,11 @@ class TeamMatches extends Component {
                 <MatchCard key={eachItem.id} eachMatch={eachItem} />
               ))}
             </ul>
+            <Link to="/" className="btn-link">
+              <button type="button" className="back-btn">
+                Back
+              </button>
+            </Link>
           </div>
         )}
       </div>
